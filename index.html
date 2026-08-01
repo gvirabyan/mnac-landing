@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mnac - Military Service Countdown Timer</title>
+  <title>Մնաց - Զինվորական ծառայության հետհաշվարկ</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/tabler-icons.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,6 +24,12 @@
     @keyframes pulse-glow {
       0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 40px rgba(139, 92, 246, 0.2); }
       50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.6), 0 0 60px rgba(139, 92, 246, 0.3); }
+    }
+
+    /* --- Бесшовный автоскролл каруселей --- */
+    @keyframes scrollSlides {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
@@ -72,6 +78,12 @@
       color: rgba(255,255,255,0.8);
       position: relative;
       z-index: 1;
+    }
+
+    .top-download {
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
     }
 
     .hero {
@@ -172,6 +184,65 @@
       display: block;
       margin-bottom: 12px;
     }
+
+    /* ===================== SCREENSHOT CAROUSEL ===================== */
+    .screens-section {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .screens-section h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #667eea, #f093fb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .screens-section p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 40px;
+      font-size: 15px;
+    }
+
+    .carousel-viewport {
+      width: 100%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      gap: 24px;
+      animation: scrollSlides 25s linear infinite;
+    }
+
+    .carousel-viewport:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    .carousel-track .slide {
+      flex: 0 0 auto;
+      width: 220px;
+      aspect-ratio: 9/19.5;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid rgba(102, 126, 234, 0.35);
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
+    .carousel-track .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* ================================================================= */
 
     .download-section {
       background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(240, 147, 251, 0.15));
@@ -294,6 +365,7 @@
       .download-buttons { flex-direction: column; }
       .btn-download { width: 100%; justify-content: center; }
       .stats { grid-template-columns: 1fr; }
+      .carousel-track .slide { width: 160px; }
     }
   </style>
 </head>
@@ -301,76 +373,87 @@
   <div class="container">
     <header>
       <h1>Մնաց</h1>
-      <p>Military Service Countdown Timer</p>
-      <p class="subtitle">Track your service journey with precision</p>
+      <p>Զինվորական ծառայության հետհաշվարկ</p>
+      <p class="subtitle">Հետևեք ձեր ծառայության ընթացքին ճշգրիտ</p>
     </header>
+
+    <div class="top-download">
+      <div class="download-buttons">
+        <a href="https://apps.apple.com/app/mnac/id6785097936" class="btn-download">
+          <i class="ti ti-brand-apple"></i>
+          App Store
+        </a>
+        <a href="https://github.com/gvirabyan/mnac-landing/releases/download/v1.0.1/mnac.apk" class="btn-download play" download="mnac.apk">
+          <i class="ti ti-brand-android"></i>
+          Ներբեռնել APK
+        </a>
+      </div>
+    </div>
 
     <div class="hero">
       <div class="hero-text">
-        <h2>Your Service, Counted Down</h2>
-        <p>Մնաց helps military service members track every moment of their commitment. Get real-time countdowns, milestones, and keep connected with the community.</p>
-        
-        <ul class="feature-list">
-          <li>Real-time countdown timer</li>
-          <li>Track important milestones</li>
-          <li>Community features</li>
-          <li>Beautiful, clean interface</li>
-        </ul>
+        <h2>Ձեր ծառայությունը՝ հաշվարկված</h2>
+        <p>«Մնաց»-ը օգնում է զինծառայողներին հետևել իրենց ծառայության յուրաքանչյուր պահին։ Ստացեք իրական ժամանակի հետհաշվարկներ, հետևեք կարևոր իրադարձություններին և մնացեք կապի մեջ համայնքի հետ։</p>
 
-        <div class="download-buttons" style="justify-content: flex-start;">
-          <a href="https://apps.apple.com/app/mnac/id6785097936" class="btn-download">
-            <i class="ti ti-brand-apple"></i>
-            App Store
-          </a>
-          <a href="downloads/mnac.apk" class="btn-download play" download="mnac.apk">
-            <i class="ti ti-brand-android"></i>
-            Скачать APK
-          </a>
-        </div>
+        <ul class="feature-list">
+          <li>Իրական ժամանակի հետհաշվարկ</li>
+          <li>Կարևոր իրադարձությունների հետագծում</li>
+          <li>Համայնքային գործառույթներ</li>
+          <li>Գեղեցիկ և հարմար ինտերֆեյս</li>
+        </ul>
       </div>
 
       <div class="image-placeholder">
         <!-- Замени на: <img src="path/to/screenshot.png" alt="Mnac app"> -->
         <div class="image-upload-text">
           <i class="ti ti-photo"></i>
-          <p>App Screenshot Here</p>
-          <p style="font-size: 12px; margin-top: 8px;">Replace with actual screenshot</p>
+          <p>Հավելվածի սքրինշոթ</p>
+          <p style="font-size: 12px; margin-top: 8px;">Փոխարինիր իրական սքրինշոթով</p>
         </div>
       </div>
     </div>
 
+    <!-- ===================== SCREENSHOT CAROUSEL ===================== -->
+    <div class="screens-section">
+      <h3>Հավելվածի տեսքը</h3>
+      <p>Մի քանի էկրան մեկ հայացքից</p>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          <!-- Оригинальный набор слайдов -->
+          <div class="slide"><img src="screenshots/screen1.png" alt="Մնաց սքրինշոթ 1"></div>
+          <div class="slide"><img src="screenshots/screen2.png" alt="Մնաց սքրինշոթ 2"></div>
+          <div class="slide"><img src="screenshots/screen3.png" alt="Մնաց սքրինշոթ 3"></div>
+          <div class="slide"><img src="screenshots/screen4.png" alt="Մնաց սքրինշոթ 4"></div>
+          <div class="slide"><img src="screenshots/screen5.png" alt="Մնաց սքրինշոթ 5"></div>
+          <!-- Дубликат того же набора — для бесшовной петли автоскролла -->
+          <div class="slide"><img src="screenshots/screen1.png" alt="Մնաց սքրինշոթ 1"></div>
+          <div class="slide"><img src="screenshots/screen2.png" alt="Մնաց սքրինշոթ 2"></div>
+          <div class="slide"><img src="screenshots/screen3.png" alt="Մնաց սքրինշոթ 3"></div>
+          <div class="slide"><img src="screenshots/screen4.png" alt="Մնաց սքրինշոթ 4"></div>
+          <div class="slide"><img src="screenshots/screen5.png" alt="Մնաց սքրինշոթ 5"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ================================================================= -->
+
     <div class="stats">
       <div class="stat-card">
         <div class="stat-number">10K+</div>
-        <div class="stat-label">Active Users</div>
+        <div class="stat-label">Ակտիվ օգտատերեր</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">4.8★</div>
-        <div class="stat-label">App Store Rating</div>
+        <div class="stat-label">App Store գնահատական</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">24/7</div>
-        <div class="stat-label">Accurate Tracking</div>
-      </div>
-    </div>
-
-    <div class="download-section">
-      <h3>Ready to start counting down?</h3>
-      <p>Available on iOS and Android</p>
-      <div class="download-buttons">
-        <a href="https://apps.apple.com/app/mnac/id6785097936" class="btn-download">
-          <i class="ti ti-brand-apple"></i>
-          Download on App Store
-        </a>
-        <a href="downloads/mnac.apk" class="btn-download play" download="mnac.apk">
-          <i class="ti ti-brand-android"></i>
-          Android
-        </a>
+        <div class="stat-label">Ճշգրիտ հետագծում</div>
       </div>
     </div>
 
     <footer>
-      <p>© 2024 Mnac. All rights reserved. | <a href="https://github.com/gvirabyan/mnac-support">Support</a></p>
+      <p>© 2024 Մնաց. Բոլոր իրավունքները պաշտպանված են | <a href="https://github.com/gvirabyan/mnac-support">Աջակցություն</a></p>
     </footer>
   </div>
 </body>
