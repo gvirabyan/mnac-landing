@@ -1,0 +1,12 @@
+/* ===== Адаптив ===== */
+
+@media (max-width: 768px) {
+  header h1 { font-size: 32px; }
+  .logo { width: 88px; height: 88px; border-radius: var(--radius-md); margin-bottom: 20px; }
+  .hero { grid-template-columns: 1fr; gap: 40px; }
+  .hero-text h2 { font-size: 28px; }
+  .download-buttons { flex-direction: column; }
+  .btn-download { width: 100%; justify-content: center; }
+  .stats { grid-template-columns: 1fr; }
+  .carousel-track .slide { width: 160px; }
+}

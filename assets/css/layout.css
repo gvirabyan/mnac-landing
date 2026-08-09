@@ -1,0 +1,157 @@
+/* ===== Крупные блоки страницы: шапка, hero, секции, подвал ===== */
+
+header {
+  background: linear-gradient(-45deg, var(--brand-1), var(--brand-2), var(--brand-3), var(--brand-4));
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: white;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+header p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+header .subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Hero ===== */
+
+.top-download {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.hero {
+  display: block;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.hero-text h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-text p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+/* ===== Секция со скриншотами ===== */
+
+.screens-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.screens-section h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.screens-section p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+/* ===== Секция загрузки ===== */
+
+.download-section {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(240, 147, 251, 0.15));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 60px 40px;
+  text-align: center;
+  margin: 80px 0;
+  backdrop-filter: blur(10px);
+}
+
+.download-section h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.download-section p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+/* ===== Статистика ===== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 80px 0;
+}
+
+/* ===== Подвал ===== */
+
+footer {
+  border-top: 1px solid rgba(102, 126, 234, 0.2);
+  padding: 40px 0;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  margin-top: 60px;
+}
+
+footer a {
+  color: var(--brand-1);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
