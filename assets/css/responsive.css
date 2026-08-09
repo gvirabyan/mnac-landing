@@ -1,12 +1,147 @@
-/* ===== Адаптив ===== */
+/* ============================================================
+   RESPONSIVE — адаптация под планшет и телефон
+   ============================================================ */
 
-@media (max-width: 768px) {
-  header h1 { font-size: 32px; }
-  .logo { width: 88px; height: 88px; border-radius: var(--radius-md); margin-bottom: 20px; }
-  .hero { grid-template-columns: 1fr; gap: 40px; }
-  .hero-text h2 { font-size: 28px; }
-  .download-buttons { flex-direction: column; }
-  .btn-download { width: 100%; justify-content: center; }
+/* ---------------- ≤ 1024px: узкий десктоп / планшет ---------------- */
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .hero-copy { max-width: 640px; margin-inline: auto; }
+  .hero-lead { margin-inline: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-note { justify-content: center; }
+
+  .hero-stage { min-height: 520px; }
+
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .stats { grid-template-columns: repeat(2, 1fr); }
+
+  .steps { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ---------------- ≤ 860px: мобильная навигация ---------------- */
+
+@media (max-width: 860px) {
+  .nav {
+    top: 10px;
+    padding: 9px 9px 9px 16px;
+    background: rgba(8, 10, 22, 0.72);
+    border-color: var(--border);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+  }
+
+  .nav-toggle { display: flex; }
+
+  .nav-cta { display: none; }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 12px;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    background: rgba(8, 10, 22, 0.94);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: var(--shadow-lg);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.98);
+    transform-origin: top center;
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+  }
+
+  .nav.is-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav-links a {
+    padding: 13px 16px;
+    font-size: 15px;
+    border-radius: var(--r-sm);
+  }
+}
+
+/* ---------------- ≤ 640px: телефон ---------------- */
+
+@media (max-width: 640px) {
+  :root { --section-y: clamp(60px, 13vw, 90px); }
+
+  .hero { padding-top: 120px; }
+
+  /* Запас снизу, чтобы вынесенный счётчик не заходил на следующую секцию */
+  .hero-stage { min-height: 440px; padding-bottom: 80px; }
+
+  .phone { width: 232px; border-radius: 38px; padding: 9px; }
+  .phone-screen { border-radius: 30px; }
+  .phone-notch { width: 64px; height: 18px; top: 10px; }
+
+  /* Счётчик уходит под телефон, чтобы не выпадать за экран.
+     Центруем через margin, а не transform — transform занят анимацией парения. */
+  .countdown-card {
+    left: 0;
+    right: 0;
+    bottom: -46px;
+    margin-inline: auto;
+    width: min(280px, calc(100vw - 48px));
+  }
+
+  .float-chip {
+    left: 0;
+    right: 0;
+    top: -22px;
+    margin-inline: auto;
+    width: max-content;
+    max-width: calc(100vw - 48px);
+    font-size: 12px;
+  }
+
+  .features-grid { grid-template-columns: 1fr; }
+
   .stats { grid-template-columns: 1fr; }
-  .carousel-track .slide { width: 160px; }
+
+  .stat { padding: 26px 20px; }
+
+  .slide { width: 178px; border-radius: 24px; }
+
+  .card { padding: 26px 22px; }
+
+  .download-buttons { width: 100%; }
+
+  .btn { width: 100%; }
+
+  .faq-q { padding: 17px 18px; font-size: 14.5px; }
+  .faq-a p { padding: 0 18px 18px; }
+
+  .footer-top { flex-direction: column; gap: 28px; }
+  .footer-bottom { justify-content: center; text-align: center; }
+}
+
+/* ---------------- Крупные экраны ---------------- */
+
+@media (min-width: 1440px) {
+  .hero-stage { min-height: 620px; }
+  .phone { width: 316px; }
+}
+
+/* ---------------- Печать ---------------- */
+
+@media print {
+  .backdrop, .nav, .scroll-progress, .carousel { display: none; }
+  body { background: #fff; color: #000; }
 }

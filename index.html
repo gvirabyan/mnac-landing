@@ -3,90 +3,408 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Մնաց - Զինվորական ծառայության հետհաշվարկ</title>
+  <title>Մնաց — Զինվորական ծառայության հետհաշվարկ</title>
+  <meta name="description" content="«Մնաց»-ը հայկական հավելված է, որը ցույց է տալիս զինվորական ծառայության մնացած օրերը՝ ճշգրիտ հետհաշվարկով, առաջընթացով և կարևոր իրադարձություններով։">
+  <meta name="theme-color" content="#05060f">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Մնաց — Զինվորական ծառայության հետհաշվարկ">
+  <meta property="og:description" content="Ձեր ծառայության մնացած ժամանակը՝ միշտ ձեռքի տակ։ Ներբեռնեք անվճար։">
+  <meta property="og:image" content="assets/img/screens/screen1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700;800&display=swap">
+
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo"><img src="assets/img/logo.png" alt="Մնաց լոգո"></div>
-      <h1>Մնաց</h1>
-      <p>Զինվորական ծառայության հետհաշվարկ</p>
-      <p class="subtitle">Հետևեք ձեր ծառայության ընթացքին ճշգրիտ</p>
-    </header>
 
-    <div class="top-download">
-      <div class="download-buttons">
-        <a href="https://apps.apple.com/app/mnac/id6785097936" class="btn-download">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.51-3.74 4.25z"/></svg>
-          App Store
-        </a>
-        <a href="https://github.com/gvirabyan/mnac-landing/releases/download/v1.0.2/mnac.apk" class="btn-download play" download="mnac.apk">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.34c-.5 0-.906-.406-.906-.906v-2.5c0-.5.406-.906.906-.906s.906.406.906.906v2.5c0 .5-.406.906-.906.906zm-11.046 0c-.5 0-.906-.406-.906-.906v-2.5c0-.5.406-.906.906-.906s.906.406.906.906v2.5c0 .5-.406.906-.906.906zM6.5 16.5v3.75c0 .69.56 1.25 1.25 1.25h.75v2.25c0 .5.406.906.906.906s.906-.406.906-.906V21.5h2.376v2.25c0 .5.406.906.906.906s.906-.406.906-.906V21.5h.75c.69 0 1.25-.56 1.25-1.25V16.5h-9.5zm9.234-9.19l1.06-1.83a.375.375 0 00-.65-.375l-1.073 1.858a6.6 6.6 0 00-2.571-.513c-.912 0-1.782.183-2.571.513L9.86 5.104a.375.375 0 10-.65.375l1.06 1.83C8.55 8.23 7.4 9.94 7.4 11.9h9.2c0-1.96-1.15-3.67-2.866-4.59zM10.3 10.3c-.276 0-.5-.224-.5-.5s.224-.5.5-.5.5.224.5.5-.224.5-.5.5zm3.4 0c-.276 0-.5-.224-.5-.5s.224-.5.5-.5.5.224.5.5-.224.5-.5.5z"/></svg>
-          Ներբեռնել APK
-        </a>
+  <!-- Живой фон -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ==================== НАВИГАЦИЯ ==================== -->
+  <header class="nav">
+    <a class="nav-brand" href="#top">
+      <img src="assets/img/logo.png" alt="">
+      Մնաց
+    </a>
+
+    <nav class="nav-links" aria-label="Հիմնական ընտրացանկ">
+      <a href="#features">Հնարավորություններ</a>
+      <a href="#how">Ինչպես է աշխատում</a>
+      <a href="#screens">Էկրաններ</a>
+      <a href="#faq">Հարցեր</a>
+    </nav>
+
+    <a href="#download" class="btn btn--primary btn--sm nav-cta">Ներբեռնել</a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Բացել ընտրացանկը">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <div class="reveal">
+            <span class="badge"><span class="dot"></span> Հասանելի է iOS-ի և Android-ի համար</span>
+          </div>
+
+          <h1 class="display reveal" style="--reveal-delay:.08s">
+            <span class="line">Մնացած օրերը՝</span>
+            <span class="line text-grad">ձեր ափի մեջ</span>
+          </h1>
+
+          <p class="hero-lead reveal" style="--reveal-delay:.16s">
+            «Մնաց»-ը առաջին հայկական հավելվածն է, որը ստեղծվել է մեր զինվորի ծառայության
+            մնացած օրերը հաշվարկելու համար։ Ճշգրիտ հետհաշվարկ, կարևոր իրադարձություններ
+            և կապ համայնքի հետ՝ մեկ հավելվածում։
+          </p>
+
+          <div class="hero-actions download-buttons reveal" style="--reveal-delay:.24s">
+            <a href="https://apps.apple.com/app/mnac/id6785097936" class="btn btn--primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.51-3.74 4.25z"/></svg>
+              <span class="btn-stack">
+                <span class="btn-sub">Ներբեռնել</span>
+                App Store
+              </span>
+            </a>
+
+            <a href="https://github.com/gvirabyan/mnac-landing/releases/download/v1.0.2/mnac.apk" class="btn btn--play" download="mnac.apk">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1 1 0 0 1 1.05.07l13.2 8.7a1 1 0 0 1 0 1.66l-13.2 8.7A1 1 0 0 1 3.1 20.7V3.3a1 1 0 0 1 .5-.9zm1.5 3.05v13.1l9.94-6.55L5.1 5.45z"/></svg>
+              <span class="btn-stack">
+                <span class="btn-sub">Ներբեռնել</span>
+                Android APK
+              </span>
+            </a>
+          </div>
+
+          <div class="hero-note reveal" style="--reveal-delay:.32s">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Անվճար
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Առանց գովազդի
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Հայերեն ինտերֆեյս
+            </span>
+          </div>
+        </div>
+
+        <!-- Сцена: телефон + живой счётчик -->
+        <div class="hero-stage reveal" style="--reveal-delay:.2s">
+          <div class="phone-tilt">
+
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-glare"></div>
+              <div class="phone-screen">
+                <img src="assets/img/screens/screen1.jpg" alt="«Մնաց» հավելվածի գլխավոր էկրանը">
+              </div>
+            </div>
+
+            <div class="float-chip">
+              <span class="ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+              </span>
+              Ծանուցում՝ երդման օր
+            </div>
+
+            <!-- Счётчик тикает в реальном времени -->
+            <div class="countdown-card" data-countdown data-start="2025-07-15T09:00:00" data-end="2027-07-15T09:00:00">
+              <div class="countdown-head">
+                <span>Մնացել է</span>
+                <span class="live"><i></i> LIVE</span>
+              </div>
+
+              <div class="countdown-grid">
+                <div class="cd-unit">
+                  <span class="cd-value" data-unit="days">—</span>
+                  <span class="cd-label">օր</span>
+                </div>
+                <div class="cd-unit">
+                  <span class="cd-value" data-unit="hours">—</span>
+                  <span class="cd-label">ժամ</span>
+                </div>
+                <div class="cd-unit">
+                  <span class="cd-value" data-unit="minutes">—</span>
+                  <span class="cd-label">րոպե</span>
+                </div>
+                <div class="cd-unit">
+                  <span class="cd-value" data-unit="seconds">—</span>
+                  <span class="cd-label">վրկ</span>
+                </div>
+              </div>
+
+              <div class="countdown-progress">
+                <div class="bar"><div class="fill"></div></div>
+                <div class="meta">
+                  <span>Անցած ճանապարհ</span>
+                  <span data-percent>0%</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <div class="hero">
-      <div class="hero-text">
-        <h2>Ձեր ծառայությունը՝ հաշվարկված</h2>
-        <p>«Մնաց»-ը առաջին հայկական հավելվածն է, որը ստեղծվել է մեր զինվորի ծառայության մնացած օրերը հաշվարկելու համար։ Ճշգրիտ հետհաշվարկ, կարևոր իրադարձություններ և կապ համայնքի հետ՝ մեկ հավելվածում։</p>
-
-        <ul class="feature-list">
-          <li>Իրական ժամանակի հետհաշվարկ</li>
-          <li>Կարևոր իրադարձությունների հետագծում</li>
-          <li>Համայնքային գործառույթներ</li>
-          <li>Գեղեցիկ և հարմար ինտերֆեյս</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- ===================== SCREENSHOT CAROUSEL ===================== -->
-    <div class="screens-section">
-      <h3>Հավելվածի տեսքը</h3>
-      <p>Մի քանի էկրան մեկ հայացքից</p>
-
-      <div class="carousel-viewport">
-        <div class="carousel-track">
-          <!-- Оригинальный набор слайдов -->
-          <div class="slide"><img src="assets/img/screens/screen1.jpg" alt="Մնաց սքրինշոթ 1"></div>
-          <div class="slide"><img src="assets/img/screens/screen2.jpg" alt="Մնաց սքրինշոթ 2"></div>
-          <div class="slide"><img src="assets/img/screens/screen3.jpg" alt="Մնաց սքրինշոթ 3"></div>
-          <div class="slide"><img src="assets/img/screens/screen4.jpg" alt="Մնաց սքրինշոթ 4"></div>
-          <!-- Дубликат того же набора — для бесшовной петли автоскролла -->
-          <div class="slide"><img src="assets/img/screens/screen1.jpg" alt="Մնաց սքրինշոթ 1"></div>
-          <div class="slide"><img src="assets/img/screens/screen2.jpg" alt="Մնաց սքրինշոթ 2"></div>
-          <div class="slide"><img src="assets/img/screens/screen3.jpg" alt="Մնաց սքրինշոթ 3"></div>
-          <div class="slide"><img src="assets/img/screens/screen4.jpg" alt="Մնաց սքրինշոթ 4"></div>
+    <!-- ==================== СТАТИСТИКА ==================== -->
+    <section class="container">
+      <div class="stats reveal">
+        <div class="stat">
+          <div class="stat-number" data-count="10" data-suffix="K+">0</div>
+          <div class="stat-label">Ակտիվ օգտատեր</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-count="4.8" data-decimals="1" data-suffix="★">0</div>
+          <div class="stat-label">App Store գնահատական</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Ճշգրիտ հետագծում</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-count="100" data-suffix="%">0</div>
+          <div class="stat-label">Անվճար</div>
         </div>
       </div>
-    </div>
-    <!-- ================================================================= -->
+    </section>
 
-    <div class="stats">
-      <div class="stat-card">
-        <div class="stat-number">10K+</div>
-        <div class="stat-label">Ակտիվ օգտատերեր</div>
+    <!-- ==================== ВОЗМОЖНОСТИ ==================== -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Հնարավորություններ</span>
+          <h2 class="section-title reveal" style="--reveal-delay:.08s">
+            Ամեն ինչ՝ <span class="text-grad">մեկ հավելվածում</span>
+          </h2>
+          <p class="section-lead reveal" style="--reveal-delay:.16s">
+            Պարզ և հասկանալի գործիքներ, որոնք ծառայության ամեն օրը դարձնում են տեսանելի։
+          </p>
+        </div>
+
+        <div class="features-grid" data-stagger="90">
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            </div>
+            <h3>Ճշգրիտ հետհաշվարկ</h3>
+            <p>Օրեր, ժամեր, րոպեներ և վայրկյաններ՝ իրական ժամանակում, առանց ուշացումների։</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><rect x="5" y="11" width="4" height="7" rx="1"/><rect x="10" y="6" width="4" height="12" rx="1"/><rect x="15" y="14" width="4" height="4" rx="1"/></svg>
+            </div>
+            <h3>Առաջընթացի պատկեր</h3>
+            <p>Տեսե՛ք անցած ճանապարհը տոկոսներով և գծապատկերով՝ մեկ հայացքից։</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
+            </div>
+            <h3>Կարևոր իրադարձություններ</h3>
+            <p>Երդում, արձակուրդ, տոներ և զորացրում՝ բոլորը մեկ ժամանակագրության մեջ։</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+            </div>
+            <h3>Ծանուցումներ</h3>
+            <p>Հիշեցումներ կարևոր օրերի մասին, որպեսզի ոչ մի ամսաթիվ բաց չթողնեք։</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Համայնք</h3>
+            <p>Կիսվե՛ք առաջընթացով ընկերների և ընտանիքի հետ. սպասելն ավելի հեշտ է միասին։</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.4 5.3 5.6.7-4.2 3.9 1.1 5.6L12 15.9 7.1 18.5l1.1-5.6L4 9l5.6-.7L12 3z"/></svg>
+            </div>
+            <h3>Հարմար ինտերֆեյս</h3>
+            <p>Գեղեցիկ, արագ և ամբողջովին հայերեն ձևավորում՝ առանց ավելորդ քայլերի։</p>
+          </article>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">4.8★</div>
-        <div class="stat-label">App Store գնահատական</div>
+    </section>
+
+    <!-- ==================== КАК ЭТО РАБОТАЕТ ==================== -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Ինչպես է աշխատում</span>
+          <h2 class="section-title reveal" style="--reveal-delay:.08s">Երեք քայլ՝ <span class="text-grad">մեկ րոպեում</span></h2>
+        </div>
+
+        <div class="steps" data-stagger="120">
+          <div class="step reveal">
+            <h3>Ներբեռնեք հավելվածը</h3>
+            <p>Հասանելի է App Store-ում, իսկ Android-ի համար՝ ուղիղ APK ֆայլով։</p>
+          </div>
+          <div class="step reveal">
+            <h3>Նշեք ամսաթվերը</h3>
+            <p>Զորակոչի և զորացրման օրերը լրացվում են ընդամենը մեկ անգամ։</p>
+          </div>
+          <div class="step reveal">
+            <h3>Հետևեք առաջընթացին</h3>
+            <p>Մնացած ժամանակը միշտ ձեր աչքի առաջ է՝ ամեն օր, ամեն վայրկյան։</p>
+          </div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Ճշգրիտ հետագծում</div>
+    </section>
+
+    <!-- ==================== СКРИНШОТЫ ==================== -->
+    <section class="section" id="screens">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Էկրաններ</span>
+          <h2 class="section-title reveal" style="--reveal-delay:.08s">Հավելվածի <span class="text-grad">տեսքը</span></h2>
+          <p class="section-lead reveal" style="--reveal-delay:.16s">Մի քանի էկրան մեկ հայացքից։</p>
+        </div>
+      </div>
+
+      <div class="carousel reveal">
+        <div class="carousel-track">
+          <!-- Первый набор -->
+          <div class="slide"><img src="assets/img/screens/screen1.jpg" alt="Մնաց սքրինշոթ 1" loading="lazy"></div>
+          <div class="slide"><img src="assets/img/screens/screen2.jpg" alt="Մնաց սքրինշոթ 2" loading="lazy"></div>
+          <div class="slide"><img src="assets/img/screens/screen3.jpg" alt="Մնաց սքրինշոթ 3" loading="lazy"></div>
+          <div class="slide"><img src="assets/img/screens/screen4.jpg" alt="Մնաց սքրինշոթ 4" loading="lazy"></div>
+          <!-- Дубликат набора — для бесшовной петли автоскролла -->
+          <div class="slide" aria-hidden="true"><img src="assets/img/screens/screen1.jpg" alt="" loading="lazy"></div>
+          <div class="slide" aria-hidden="true"><img src="assets/img/screens/screen2.jpg" alt="" loading="lazy"></div>
+          <div class="slide" aria-hidden="true"><img src="assets/img/screens/screen3.jpg" alt="" loading="lazy"></div>
+          <div class="slide" aria-hidden="true"><img src="assets/img/screens/screen4.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ВОПРОСЫ ==================== -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Հարցեր</span>
+          <h2 class="section-title reveal" style="--reveal-delay:.08s">Հաճախ տրվող <span class="text-grad">հարցեր</span></h2>
+        </div>
+
+        <div class="faq-list" data-stagger="80">
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Հավելվածը վճարովի՞ է։
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>Ոչ։ «Մնաց»-ի ներբեռնումն ու օգտագործումն ամբողջովին անվճար է և չի պարունակում գովազդ։</p></div></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Ինչպե՞ս տեղադրել Android-ի վրա։
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>Սեղմեք «Android APK» կոճակը, ներբեռնեք ֆայլը և բացեք այն։ Հեռախոսը կխնդրի թույլատրել տեղադրումն անհայտ աղբյուրից՝ հաստատեք, և հավելվածը կտեղադրվի։</p></div></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Ի՞նչ սարքերի վրա է աշխատում։
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>Հավելվածը հասանելի է iPhone-ի համար App Store-ում, իսկ Android սարքերի համար՝ ուղիղ ներբեռնվող APK ֆայլով։</p></div></div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Ինչպե՞ս ստանալ աջակցություն։
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div><p>Հարցերի, առաջարկների կամ խնդիրների դեպքում գրեք մեզ աջակցության էջում՝ <a href="https://github.com/gvirabyan/mnac-support" style="color:#a78bfa">github.com/gvirabyan/mnac-support</a>։</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ПРИЗЫВ К ДЕЙСТВИЮ ==================== -->
+    <section class="section" id="download">
+      <div class="container">
+        <div class="cta reveal">
+          <h2 class="section-title">Սկսե՛ք հետհաշվարկը <span class="text-grad">այսօր</span></h2>
+          <p>Ներբեռնեք «Մնաց»-ը և թող ամեն օրը մոտեցնի տան վերադարձին։</p>
+
+          <div class="download-buttons">
+            <a href="https://apps.apple.com/app/mnac/id6785097936" class="btn btn--primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.51-3.74 4.25z"/></svg>
+              App Store
+            </a>
+            <a href="https://github.com/gvirabyan/mnac-landing/releases/download/v1.0.2/mnac.apk" class="btn btn--play" download="mnac.apk">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1 1 0 0 1 1.05.07l13.2 8.7a1 1 0 0 1 0 1.66l-13.2 8.7A1 1 0 0 1 3.1 20.7V3.3a1 1 0 0 1 .5-.9zm1.5 3.05v13.1l9.94-6.55L5.1 5.45z"/></svg>
+              Android APK
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== ПОДВАЛ ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="assets/img/logo.png" alt="">
+            Մնաց
+          </div>
+          <p class="footer-tagline">Զինվորական ծառայության հետհաշվարկ՝ հայերեն։</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Ստորին ընտրացանկ">
+          <a href="#features">Հնարավորություններ</a>
+          <a href="#screens">Էկրաններ</a>
+          <a href="#faq">Հարցեր</a>
+          <a href="https://github.com/gvirabyan/mnac-support">Աջակցություն</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Մնաց. Բոլոր իրավունքները պաշտպանված են։</span>
+        <span>Ստեղծված է Հայաստանում ❤</span>
       </div>
     </div>
+  </footer>
 
-    <footer>
-      <p>© 2026 Մնաց. Բոլոր իրավունքները պաշտպանված են | <a href="https://github.com/gvirabyan/mnac-support">Աջակցություն</a></p>
-    </footer>
-  </div>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
