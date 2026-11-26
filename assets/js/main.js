@@ -107,8 +107,10 @@
      4. Живой счётчик службы в hero
      --------------------------------------------------------- */
   function initCountdown() {
-    var root = document.querySelector('[data-countdown]');
-    if (!root) return;
+    document.querySelectorAll('[data-countdown]').forEach(initCountdownFor);
+  }
+
+  function initCountdownFor(root) {
 
     var start = new Date(root.getAttribute('data-start'));
     var end = new Date(root.getAttribute('data-end'));
