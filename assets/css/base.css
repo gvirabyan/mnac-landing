@@ -4,8 +4,8 @@
 
 :root {
   /* --- Поверхности --- */
-  --bg: #05060f;
-  --bg-soft: #0a0c1a;
+  --bg: #07080c;
+  --bg-soft: #0e0f14;
   --surface: rgba(255, 255, 255, 0.035);
   --surface-2: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.09);
@@ -17,14 +17,14 @@
   --text-dim: rgba(233, 236, 255, 0.42);
 
   /* --- Бренд --- */
-  --brand-1: #6366f1;
-  --brand-2: #a855f7;
-  --brand-3: #f472b6;
-  --brand-4: #22d3ee;
+  --brand-1: #f5b82e;
+  --brand-2: #ffd36b;
+  --brand-3: #e8892a;
+  --brand-4: #5aaefc;
   --brand-play: #22c55e;
 
   --grad-brand: linear-gradient(135deg, var(--brand-1), var(--brand-2) 45%, var(--brand-3));
-  --grad-deep: linear-gradient(135deg, var(--brand-1), #7c3aed);
+  --grad-deep: linear-gradient(135deg, var(--brand-1), #e09a1c);
   --grad-cool: linear-gradient(135deg, var(--brand-4), var(--brand-1));
 
   /* --- Радиусы --- */
@@ -39,7 +39,7 @@
   --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 16px 40px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 40px 90px rgba(0, 0, 0, 0.6);
-  --glow: 0 0 60px rgba(99, 102, 241, 0.35);
+  --glow: 0 0 60px rgba(245, 184, 46, 0.35);
 
   /* --- Ритм --- */
   --section-y: clamp(72px, 10vw, 140px);
@@ -79,7 +79,7 @@ ul { list-style: none; }
 
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 
-::selection { background: rgba(168, 85, 247, 0.4); color: #fff; }
+::selection { background: rgba(255, 196, 80, 0.4); color: #fff; }
 
 :focus-visible {
   outline: 2px solid var(--brand-4);
