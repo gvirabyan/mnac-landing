@@ -31,7 +31,7 @@
   .nav {
     top: 10px;
     padding: 9px 9px 9px 16px;
-    background: rgba(8, 10, 22, 0.72);
+    background: rgba(10, 10, 14, 0.72);
     border-color: var(--border);
     backdrop-filter: blur(18px) saturate(160%);
     -webkit-backdrop-filter: blur(18px) saturate(160%);
@@ -52,7 +52,7 @@
     padding: 12px;
     border-radius: var(--r-lg);
     border: 1px solid var(--border);
-    background: rgba(8, 10, 22, 0.94);
+    background: rgba(10, 10, 14, 0.94);
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
     box-shadow: var(--shadow-lg);
@@ -82,10 +82,56 @@
 @media (max-width: 640px) {
   :root { --section-y: clamp(60px, 13vw, 90px); }
 
-  .hero { padding-top: 120px; }
+  /* ---- Hero на телефоне: полноэкранный фон + карточка как в приложении ---- */
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 92px;
+    padding-bottom: 48px;
+    isolation: isolate;
+    overflow: hidden;
+  }
 
-  /* Запас снизу, чтобы вынесенный счётчик не заходил на следующую секцию */
-  .hero-stage { min-height: 440px; padding-bottom: 80px; }
+  .m-hero-bg { display: block; }
+
+  .hero-grid { gap: 0; }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-copy > .reveal:first-child { align-self: center; }
+
+  .app-card { display: block; margin-top: 16px; order: 1; }
+  .hero-copy > .reveal:first-child { order: 0; }
+  .hero h1 { order: 2; }
+  .hero-actions { order: 3; }
+  .hero-note { order: 4; margin-bottom: 22px; }
+  .hero-lead { order: 5; margin-bottom: 0; }
+
+  .hero h1 {
+    font-size: clamp(30px, 8.6vw, 38px);
+    margin: 24px 0 18px;
+  }
+
+  .hero-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .hero-note { font-size: 12.5px; }
+
+  /* Макет телефона на мобильном не нужен — его заменяет карточка */
+  .hero-stage { display: none; }
+
+  .badge {
+    background: rgba(10, 9, 7, 0.55);
+    border-color: rgba(245, 184, 46, 0.35);
+  }
 
   .phone { width: 232px; border-radius: 38px; padding: 9px; }
   .phone-screen { border-radius: 30px; }
@@ -144,4 +190,10 @@
 @media print {
   .backdrop, .nav, .scroll-progress, .carousel { display: none; }
   body { background: #fff; color: #000; }
+}
+
+/* Без анимации — оставляем один статичный кадр фона */
+@media (prefers-reduced-motion: reduce) {
+  .m-hero-bg span { animation: none !important; }
+  .m-hero-bg span:first-child { opacity: 1; }
 }
