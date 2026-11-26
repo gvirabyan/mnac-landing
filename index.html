@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Մնաց — Զինվորական ծառայության հետհաշվարկ</title>
   <meta name="description" content="«Մնաց»-ը հայկական հավելված է, որը ցույց է տալիս զինվորական ծառայության մնացած օրերը՝ ճշգրիտ հետհաշվարկով, առաջընթացով և կարևոր իրադարձություններով։">
-  <meta name="theme-color" content="#05060f">
+  <meta name="theme-color" content="#07080c">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Մնաց — Զինվորական ծառայության հետհաշվարկ">
@@ -18,7 +18,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700;800&family=Noto+Serif+Armenian:wght@600;700;800&display=swap">
 
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
@@ -61,11 +61,40 @@
 
     <!-- ==================== HERO ==================== -->
     <section class="hero">
+      <!-- Фон в стиле приложения — виден только на телефоне -->
+      <div class="m-hero-bg" aria-hidden="true">
+        <span style="background-image:url('assets/img/screens/screen1.jpg')"></span>
+        <span style="background-image:url('assets/img/screens/screen5.jpg')"></span>
+        <span style="background-image:url('assets/img/screens/screen2.jpg')"></span>
+      </div>
+
       <div class="container hero-grid">
 
         <div class="hero-copy">
           <div class="reveal">
             <span class="badge"><span class="dot"></span> Հասանելի է iOS-ի և Android-ի համար</span>
+          </div>
+
+
+          <!-- Карточка как в приложении — только на телефоне -->
+          <div class="app-card reveal" style="--reveal-delay:.06s" data-countdown data-start="2025-07-15T09:00:00" data-end="2027-07-15T09:00:00">
+            <div class="app-card-head">
+              <img class="app-card-avatar" src="assets/img/logo.png" alt="">
+              <span class="app-card-name">Դեպի տուն</span>
+              <span class="app-card-pill" data-percent>0%</span>
+            </div>
+            <span class="app-card-label">ՄՆԱՑ</span>
+            <div class="app-card-days" data-unit="days">—</div>
+            <div class="app-card-sub">օր մինչև տուն</div>
+            <div class="app-card-bar"><div class="fill"></div></div>
+            <div class="app-card-date">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 2a1 1 0 0 1 1 1v1h12.4a1 1 0 0 1 .8 1.6L16.8 9l2.4 3.4a1 1 0 0 1-.8 1.6H6v7a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1z"/></svg>
+              Զորացրում՝ 15 Հուլիս 2027
+            </div>
+            <div class="app-card-foot">
+              <span class="app-card-logo">Մնաց</span>
+              <span>Հաշված օրեր մինչև տուն</span>
+            </div>
           </div>
 
           <h1 class="display reveal" style="--reveal-delay:.08s">
@@ -271,7 +300,7 @@
         <div class="steps" data-stagger="120">
           <div class="step reveal">
             <h3>Ներբեռնեք հավելվածը</h3>
-            <p>Հասանելի է App Store-ում, իսկ Android-ի համար՝ ուղիղ APK ֆայլով։</p>
+            <p>Հասանելի է App Store-ում և Google Play-ում։</p>
           </div>
           <div class="step reveal">
             <h3>Նշեք ամսաթվերը</h3>
@@ -341,7 +370,7 @@
               Ի՞նչ սարքերի վրա է աշխատում։
               <span class="faq-icon" aria-hidden="true"></span>
             </button>
-            <div class="faq-a"><div><p>Հավելվածը հասանելի է iPhone-ի համար App Store-ում, իսկ Android սարքերի համար՝ ուղիղ ներբեռնվող APK ֆայլով։</p></div></div>
+            <div class="faq-a"><div><p>Հավելվածը հասանելի է iPhone-ի համար App Store-ում, իսկ Android սարքերի համար՝ Google Play-ում։</p></div></div>
           </div>
 
           <div class="faq-item reveal">
@@ -349,7 +378,7 @@
               Ինչպե՞ս ստանալ աջակցություն։
               <span class="faq-icon" aria-hidden="true"></span>
             </button>
-            <div class="faq-a"><div><p>Հարցերի, առաջարկների կամ խնդիրների դեպքում գրեք մեզ աջակցության էջում՝ <a href="https://github.com/gvirabyan/mnac-support" style="color:#a78bfa">github.com/gvirabyan/mnac-support</a>։</p></div></div>
+            <div class="faq-a"><div><p>Հարցերի, առաջարկների կամ խնդիրների դեպքում գրեք մեզ աջակցության էջում՝ <a href="https://github.com/gvirabyan/mnac-support" style="color:#f5b82e">github.com/gvirabyan/mnac-support</a>։</p></div></div>
           </div>
         </div>
       </div>
